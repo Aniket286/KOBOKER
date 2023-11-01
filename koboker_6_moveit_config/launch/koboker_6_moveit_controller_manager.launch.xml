@@ -1,0 +1,17 @@
+<launch>
+  <arg name="moveit_controller_manager"
+       default="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
+  <param name="moveit_controller_manager"
+         value="$(arg moveit_controller_manager)"/>
+  <param name="robot_description" textfile="$(find koboker_6)/urdf/koboker_6.urdf"/>
+  <param name="robot_description_semantic" textfile="$(find koboker_6_moveit_config)/config/koboker_6.srdf" />
+
+  <rosparam file="$(find koboker_6_moveit_config)/config/moveit_controllers.yaml" command="load"/>
+  <rosparam file="$(find koboker_6_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="robot_description_kinematics">
+    <rosparam command="load" file="$(find koboker_6_moveit_config)/config/kinematics.yaml"/>
+  </group>
+
+</launch>

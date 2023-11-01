@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="topics_to_ssv" pkg="koboker_6_moveit_config" type="topics_to_ssv.py" respawn="false" output="screen">
+  </node>
+
+</launch>
