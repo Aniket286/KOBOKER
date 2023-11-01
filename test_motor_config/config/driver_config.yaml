@@ -1,0 +1,26 @@
+bus:
+  device: can0 # socketcan network
+  loopback: false # socket should loop back messages
+  driver_plugin: can::SocketCANInterface
+  master_allocator: canopen::SimpleMaster::Allocator
+sync:
+  interval_ms: 10 # set to 0 to disable sync
+  update_ms: <interval_ms> #update interval of control loop, must be set explecitly if sync is disabled
+  overflow: 0 # overflow sync counter at value or do not set it (0, default)
+  #heartbeat: # simple heartbeat producer, optional!
+  #rate: 20 # heartbeat rate
+  msg: "77f#05" # message to send, cansend format: heartbeat of node 127 with status 5=Started
+
+# struct syntax
+nodes:
+  node1:
+    id: 1
+    eds_pkg: test_motor_config # optionals package name for relative path
+    eds_file: "config/maxon.dcf" # path to EDS/DCF file
+
+defaults: # optional, all defaults can be overwritten per node
+  eds_pkg: test_motor_config # optional package  name for relative path
+  eds_file: "maxon.dcf" # path to EDS/DCF file
+  dcf_overlay: # "ObjectID": "ParameterValue" (both as strings)
+    "1016sub1" : "0x7F0064" # heartbeat timeout of 100 ms for master at 127
+    "1017": "100" # heartbeat producer

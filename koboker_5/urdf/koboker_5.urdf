@@ -1,0 +1,451 @@
+<robot
+  name="koboker_5">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.075 -0.100043179942263 0.600223750609909"
+        rpy="0 0 0" />
+      <mass
+        value="97.2381703507411" />
+      <inertia
+        ixx="12.001"
+        ixy="0"
+        ixz="0"
+        iyy="0.50672"
+        iyz="0.0023933"
+        izz="11.859" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="0 2.22044604925031E-16 0.0828639343196872"
+        rpy="0 0 0" />
+      <mass
+        value="2.5152856908757" />
+      <inertia
+        ixx="0.031093"
+        ixy="0"
+        ixz="0"
+        iyy="0.022389"
+        iyz="0.011463"
+        izz="0.011462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="continuous">
+    <origin
+      xyz="0.0750000000000002 -0.2 1.17"
+      rpy="-1.5707963267949 -0.0608144257926208 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="-4.24573570745324E-16 -0.12234706292479 -2.22044604925031E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.44688363105601" />
+      <inertia
+        ixx="0.029297"
+        ixy="0"
+        ixz="0"
+        iyy="0.0021158"
+        iyz="0"
+        izz="0.030125" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_2"
+    type="continuous">
+    <origin
+      xyz="0 0 0.0889999999999996"
+      rpy="-2.79585728312551 5.41233724504764E-16 9.08995101411847E-16" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="1 0 0" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <link
+    name="Link_4">
+    <inertial>
+      <origin
+        xyz="0 -0.155460108095431 -0.000182357215518236"
+        rpy="0 0 0" />
+      <mass
+        value="0.461909268888393" />
+      <inertia
+        ixx="0.0079961"
+        ixy="0"
+        ixz="0"
+        iyy="0.00042806"
+        iyz="3.3548E-07"
+        izz="0.008157" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_3"
+    type="continuous">
+    <origin
+      xyz="0 -0.191518860577662 0"
+      rpy="2.36166624164541E-14 -1.41027329486371 -2.32693585573886E-14" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_4" />
+    <axis
+      xyz="0 -1 0" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <link
+    name="Link_5">
+    <inertial>
+      <origin
+        xyz="-0.0660792538271653 -2.22044604925031E-16 -3.88578058618805E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.72944846617856" />
+      <inertia
+        ixx="0.0015693"
+        ixy="0"
+        ixz="-0.00010415"
+        iyy="0.006018"
+        iyz="0"
+        izz="0.0049422" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_4"
+    type="continuous">
+    <origin
+      xyz="0 -0.253481139422344 0"
+      rpy="-3.14159265358979 1.2490009027033E-16 1.33135760141189" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Link_5" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <link
+    name="Link_6">
+    <inertial>
+      <origin
+        xyz="0.167918427954662 -2.83106871279415E-15 1.33226762955019E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.318922946362706" />
+      <inertia
+        ixx="0.0044401"
+        ixy="0"
+        ixz="-3.4407E-05"
+        iyy="0.0031355"
+        iyz="0"
+        izz="0.0029936" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_5"
+    type="continuous">
+    <origin
+      xyz="-0.153390908669555 0 0"
+      rpy="-0.956288619556786 -3.38618022510673E-15 -3.14159265358979" />
+    <parent
+      link="Link_5" />
+    <child
+      link="Link_6" />
+    <axis
+      xyz="1 0 0" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <link
+    name="Link_7">
+    <inertial>
+      <origin
+        xyz="-0.013147 -4.1633E-15 -3.3307E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.43615" />
+      <inertia
+        ixx="0.0011943"
+        ixy="0"
+        ixz="8.9952E-05"
+        iyy="0.0013881"
+        iyz="0"
+        izz="0.00031407" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://koboker_5/meshes/Link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_6"
+    type="continuous">
+    <origin
+      xyz="0.267609091330445 0 0"
+      rpy="1.67227343084164E-15 -2.44249065417534E-15 -2.68069262354812" />
+    <parent
+      link="Link_6" />
+    <child
+      link="Link_7" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics friction="0.2"/>
+  </joint>
+  <gazebo reference="base_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_2">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_3">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_4">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_5">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_6">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_7">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/koboker_5</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>

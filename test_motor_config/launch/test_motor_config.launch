@@ -1,0 +1,42 @@
+<launch>
+
+    <!-- Load the URDF into ROS parameter server -->
+    <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="False" />
+  <param
+    name="robot_description"
+    textfile="$(find test_motor)/urdf/test_motor.urdf" />
+  <param
+    name="use_gui"
+    value="$(arg gui)" />
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+
+    <node name="canopen_chain"
+     pkg="canopen_chain_node"
+     type="canopen_chain_node"
+     output="screen" clear_params="true">
+     <rosparam command="load" file="$(find test_motor_config)/config/driver_config.yaml" />
+    </node>
+
+<!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find test_motor_control)/config/test_motor_control.yaml" command="load"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/test_motor" args="joint_state_controller
+                                       joint1_position_controller"/>
+     <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller" respawn="false" />
+     <node name="arm_controller_spawner" pkg="controller_manager" type="spawner" args="arm_controller" />
+    <!-- Combine joint values -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+    <!-- Show in Rviz   -->
+    <node name="rviz" pkg="rviz" type="rviz"/>
+
+</launch>

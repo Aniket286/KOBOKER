@@ -1,0 +1,122 @@
+<robot
+  name="test_motor">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.075 -0.100043179942263 0.600223750609909"
+        rpy="0 0 0" />
+      <mass
+        value="97.2381703507411" />
+      <inertia
+        ixx="12.001"
+        ixy="0"
+        ixz="0"
+        iyy="0.50672"
+        iyz="0.0023933"
+        izz="11.859" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_motor/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_motor/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="0 2.22044604925031E-16 0.0828639343196872"
+        rpy="0 0 0" />
+      <mass
+        value="2.5152856908757" />
+      <inertia
+        ixx="0.031093"
+        ixy="0"
+        ixz="0"
+        iyy="0.022389"
+        iyz="0.011463"
+        izz="0.011462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_motor/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test_motor/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="continuous">
+    <origin
+      xyz="0.0750000000000002 -0.2 1.17"
+      rpy="-1.5707963267949 -0.0608144257926208 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics friction="0.2"/>
+  </joint>
+  
+  <gazebo reference="base_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="Link_2">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Joint_1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/test_motor</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>
